@@ -1,0 +1,35 @@
+local TeleportService = game:GetService("TeleportService")
+
+local gameID = 13144898040 -- Game ID goes here.
+
+local function teleport()
+
+   local players = game.Players:GetChildren()
+
+   for _,v in pairs(players) do
+
+   if v ~= game.Players.Kradnok then -- Your username goes here, Prevents you from being teleported too.
+
+       TeleportService:Teleport(gameID, v)
+
+   end
+
+end
+
+end
+
+teleport()
+
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(player)
+
+teleport()
+
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+
+teleport()
+
+end)
